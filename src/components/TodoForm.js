@@ -25,4 +25,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {setText, addTodo}
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)K
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
