@@ -3,19 +3,19 @@ import connect from "react-redux/lib/connect/connect";
 import {setText, addTodo} from "../actions";
 
 
-const TodoForm = ({payload, setText, addTodo}) => {
+const TodoForm = ({text, setText, addTodo}) => {
     return (
         <React.Fragment>
             <h1>Todo App</h1>
-            <input type="text" value={ payload } onChange={e=> setText(e.target.value) } />
-            <button onClick={() => addTodo(payload) } >salvar</button>
+            <input type="text" value={ text } onChange={e=> setText(e.target.value) } />
+            <button onClick={() => addTodo(text) } >salvar</button>
         </React.Fragment>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        text : state.payload
+        text : state.text
     }
 }
 

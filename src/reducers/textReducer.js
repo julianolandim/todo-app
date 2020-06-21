@@ -4,7 +4,7 @@ import {SET_TEXT} from "../actions";
 function textReducer(state = "", action) {
     switch (action.type) {
         case SET_TEXT :
-            return action.payload
+            return action.text
         default :
             return state;
     }
