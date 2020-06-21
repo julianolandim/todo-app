@@ -1,24 +1,28 @@
 import React from "react";
 import connect from "react-redux/lib/connect/connect";
-import {setText, addTodo} from "../actions";
+import {addTodo, setText} from "../actions";
 
 
 const TodoForm = ({text, setText, addTodo}) => {
     return (
         <React.Fragment>
-            <h1>Todo App</h1>
-            <input type="text" value={ text } onChange={e=> setText(e.target.value) } />
-            <button onClick={() => addTodo(text) } >salvar</button>
+            <form onSubmit={ (e) => {
+                e.preventDefault();
+                addTodo(text)
+            }}>
+                <input type="text" value={text} onChange={e => setText(e.target.value)}/>
+                <button className="btn" type="submmit">salvar</button>
+            </form>
         </React.Fragment>
     );
 }
 
 const mapStateToProps = (state) => {
     return {
-        text : state.text
+        text: state.text
     }
 }
 
-const mapDispatchToProps = { setText , addTodo}
+const mapDispatchToProps = {setText, addTodo}
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)K

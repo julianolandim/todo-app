@@ -3,9 +3,9 @@ import connect from "react-redux/lib/connect/connect";
 
 const TodoList = ( {todos} ) => {
     return (
-        <ul>
+        <ul className="collection">
             {todos.map((todo, index) => {
-                return <li key={index}>{todo}</li>
+                return <li className="collection-item" key={index}>{todo}</li>
             })}
         </ul>
     );
