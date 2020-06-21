@@ -7,7 +7,7 @@ const TodoApp = () => {
 
     return (
         <div className="container">
-            <h1>Todo App</h1>
+            <h3>Todo App</h3>
             <TodoForm />
             <TodoList />
         </div>
