@@ -1,36 +1,24 @@
 import React from "react";
+import connect from "react-redux/lib/connect/connect";
+import {setText, addTodo} from "../actions";
 
-class TodoForm extends React.Component{
 
-    state = {
-        inputValue : ""
-    }
+const TodoForm = ({payload, setText, addTodo}) => {
+    return (
+        <React.Fragment>
+            <h1>Todo App</h1>
+            <input type="text" value={ payload } onChange={e=> setText(e.target.value) } />
+            <button onClick={() => addTodo(payload) } >salvar</button>
+        </React.Fragment>
+    );
+}
 
-    onChangeInput = (e) => {
-        let {value} = e.target;
-        this.setState({
-            inputValue : value,
-        })
-    }
-
-    onClick = (e) => {
-        this.props.onSaveTodo(this.state.inputValue);
-        this.setState({
-            inputValue: ""
-        })
-
-    }
-
-    render() {
-        let {inputValue} = this.state;
-        return (
-            <React.Fragment>
-                <h1>Todo App</h1>
-                <input type="text" value={ inputValue } onChange={ this.onChangeInput } />
-                <button onClick={this.onClick} >salvar</button>
-            </React.Fragment>
-        );
+const mapStateToProps = (state) => {
+    return {
+        text : state.payload
     }
 }
 
-export default TodoForm
+const mapDispatchToProps = { setText , addTodo}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm)

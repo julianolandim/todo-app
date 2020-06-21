@@ -1,6 +1,13 @@
+import {ADD_TODO} from "../actions";
+
 
 function todosReducer(state = [], action) {
-    return state;
+    switch (action.type) {
+        case ADD_TODO:
+           return [...state, action.todo]
+        default:
+           return state;
+    }
 }
 
 export default todosReducer
