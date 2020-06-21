@@ -1,29 +1,11 @@
 import {combineReducers} from "redux";
 
+import todosReducer from "./todosReducer";
+import textReducer from "./textReducer";
 
 
-function todosReducer(state = [], action) {
-
-}
-
-function textReducer(state = "", action) {
-
-}
-
-combineReducers({
+export default combineReducers({
     todos : todosReducer,
     text : textReducer
 })
 
-
-
-const INITIAL_STATE = {
-    todos : [],
-    text : ""
-}
-
-function rootReducer(state = INITIAL_STATE, action) {
-    return state;
-}
-
-export default rootReducer()
